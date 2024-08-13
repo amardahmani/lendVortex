@@ -1,7 +1,37 @@
 import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import student from '../assets/student.svg';
+import employee from '../assets/employee.svg';
+import business from '../assets/business.svg'
+import { ArrowPathIcon, 	AdjustmentsHorizontalIcon, FingerPrintIcon, LockClosedIcon,ClockIcon } from '@heroicons/react/24/outline'
 
+const features = [
+  {
+    name: 'Fast Loan Processing',
+    description:
+      'Accelerate the loan approval process with our efficient and automated system. Reduce wait times and offer quick responses to borrower applications.',
+    icon: ClockIcon,
+  },
+  {
+    name: 'Secure Data Protection',
+    description:
+      'Ensure the safety of personal and financial information with robust encryption and security measures. Protect your users data from unauthorized access and fraud.',
+    icon: LockClosedIcon,
+  },
+  {
+    name: 'Flexible Repayment Options',
+    description:
+      'Offer customizable repayment plans to suit various borrower needs. Provide options such as flexible schedules and adjustable payment amounts to enhance user satisfaction.',
+    icon: AdjustmentsHorizontalIcon,
+  },
+  {
+    name: 'Advanced Risk Assessment',
+    description:
+      'Utilize sophisticated algorithms for risk assessment and credit scoring. Make informed lending decisions based on comprehensive data analysis and reduce default rates.',
+    icon: FingerPrintIcon,
+  },
+];
 const navigation = [
   { name: 'Product', href: '#' },
   { name: 'Features', href: '#' },
@@ -150,9 +180,116 @@ export default function Example() {
         </div>
       </div>
 
-      <div>
-        
+      <div className='text-center flex flex-col justify-center items-center'>
+        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+          Simplify Your Lending Experience with Lend Storm
+        </h1>
+        <div className="border-t  my-20"></div>
+        <div className="flex flex-col md:flex-row mt-6 md:space-x-4 space-y-4 md:space-y-0 justify-center items-stretch items-center">
+    
+          <div className="max-w-sm flex flex-col bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <img className="rounded-t-lg" src={student} alt="" />
+              <div className="p-5 flex flex-col flex-1">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                      Tips for Students: Balancing Academics and Life
+                  </h5>
+                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 flex-grow">
+                      Learn how to manage your time effectively, stay organized, and find a balance between your studies and personal life.
+                  </p>
+                  
+              </div>
+          </div>
+
+          <div className="max-w-sm flex flex-col bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <img className="rounded-t-lg" src={business} alt="" />
+              <div className="p-5 flex flex-col flex-1">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                      Strategies for Small Business Growth
+                  </h5>
+                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 flex-grow">
+                      Explore key strategies to grow your small business, from improving customer retention to scaling operations effectively.
+                  </p>
+              </div>
+          </div>
+
+          <div className="max-w-sm flex flex-col bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <img className="rounded-t-lg" src={employee} alt="" />
+              <div className="p-5 flex flex-col flex-1">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                      Career Development Tips for Employees
+                  </h5>
+                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 flex-grow">
+                      Discover tips and best practices for advancing your career, including skill development, networking, and goal setting.
+                  </p>
+              </div>
+          </div>
+        </div>
+
+             
+            
+            
+    </div>
+
+    <div className="bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:text-center">
+          <h2 className="text-base font-semibold leading-7 text-green-600">Deploy faster</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Everything you need to deploy your app
+          </p>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum
+            pulvinar et feugiat blandit at. In mi viverra elit nunc.
+          </p>
+        </div>
+        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+            {features.map((feature) => (
+              <div key={feature.name} className="relative pl-16">
+                <dt className="text-base font-semibold leading-7 text-gray-900">
+                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-green-600">
+                    <feature.icon aria-hidden="true" className="h-6 w-6 text-white" />
+                  </div>
+                  {feature.name}
+                </dt>
+                <dd className="mt-2 text-base leading-7 text-gray-600">{feature.description}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </div>
     </div>
+
+    <div className="bg-green-600 text-white py-8 px-6 rounded-lg shadow-md text-center">
+      <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Lending Experience?</h2>
+      <p className="text-lg mb-6">
+        Discover how `lendStorm` can streamline your lending processes, protect your data, and offer flexible solutions to your users.
+      </p>
+      <a
+        href="#signup"
+        className="inline-flex items-center px-4 py-2 text-lg font-semibold bg-white text-green-700 rounded-lg hover:bg-gray-200 transition-colors duration-300"
+      >
+        Get Started
+        <svg
+          className="w-5 h-5 ml-2"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M5 12h14m0 0l-7 7m7-7l-7-7"
+          />
+        </svg>
+      </a>
+    </div>
+</div>
+
+    
+
+      
   )
 }
