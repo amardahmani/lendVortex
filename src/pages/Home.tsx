@@ -4,7 +4,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import student from '../assets/student.svg';
 import employee from '../assets/employee.svg';
 import business from '../assets/business.svg'
-import { ArrowPathIcon, 	AdjustmentsHorizontalIcon, FingerPrintIcon, LockClosedIcon,ClockIcon } from '@heroicons/react/24/outline'
+import { AdjustmentsHorizontalIcon, FingerPrintIcon, LockClosedIcon,ClockIcon } from '@heroicons/react/24/outline'
 
 const features = [
   {
