@@ -7,6 +7,10 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Sidebar from './components/navigation/SideBar'
 import PaymentsPage from './pages/user/PaymentsPage'
 import BankCard from './components/bank/BankCard'
+import LoansPage from './pages/user/LoansPage'
+import Dahsboard from './pages/user/Dahsboard'
+import LoanTransactionsTable from './components/payment/LoanTransactionsTable'
+import AccountPage from './pages/user/AccountPage'
 
 function App() {
   const handleClick = (): void => {
@@ -25,13 +29,8 @@ function App() {
         <Sidebar />
         
         <div className="w-full ml-16 md:ml-56 ">
-        <div className='p-10 flex'>
-        <BankCard
-          cardNumber="1234 5678 9012 3456"
-          cardHolderName="John Doe"
-          expirationDate="12/25"
-          cvv="123"
-        />
+        <div className='p-10'>
+          <AccountPage />
         </div>
         </div>
       </div>

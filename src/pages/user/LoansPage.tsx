@@ -7,10 +7,10 @@ const LoansPage = () => {
         console.log('Hello');
       };
   return (
-    <div>
+    <>
         <ApplyLoanButton onClick={handleClick}/>
         <LoanListTable onViewStats={handleClick}/>
-    </div>
+    </>
   )
 }
 
