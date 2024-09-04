@@ -5,17 +5,17 @@ import Auth from './pages/Auth'
 import Register from './pages/Register'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Sidebar from './components/navigation/SideBar'
-import LoansCard from './components/loans/LoansCard'
-import ActivityCard from './components/activity/ActivityCard'
-import QuickActionsCard from './components/Quick/QuickActionsCard'
-import LoandDistributionChart from './components/loans/LoandDistributionChart'
-import PaymentHistory from './components/payment/PaymentHistory'
-import ApplyLoanButton from './components/loans/Buttons/ApplyLoanButton'
-import LoanListTable from './components/loans/ListLoans'
+import PaymentsPage from './pages/user/PaymentsPage'
+import BankCard from './components/bank/BankCard'
 
 function App() {
   const handleClick = (): void => {
     console.log('Hello');
+  };
+  const accountInfo = {
+    name: 'Personal Checking',
+    currentBalance: 1240.75,
+    mask: '1234',
   };
   return (
     <div>
@@ -25,9 +25,13 @@ function App() {
         <Sidebar />
         
         <div className="w-full ml-16 md:ml-56 ">
-        <div className='p-5'>
-          <ApplyLoanButton onClick={handleClick}/>
-          <LoanListTable onViewStats={handleClick}/>
+        <div className='p-10 flex'>
+        <BankCard
+          cardNumber="1234 5678 9012 3456"
+          cardHolderName="John Doe"
+          expirationDate="12/25"
+          cvv="123"
+        />
         </div>
         </div>
       </div>
