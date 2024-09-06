@@ -11,10 +11,10 @@ const QuickActionsCard = () => {
             <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Quick Actions</h5>
         </a>
       </div>
-    <div className="mb-3 mt-3 font-normal text-gray-500 dark:text-gray-400 space-y-2">
+      <div className="mb-3 mt-3 font-normal text-gray-500 dark:text-gray-400 space-y-2">
         <button className="w-full bg-blue-500 text-white py-1 rounded-md hover:bg-blue-600">New Loan</button>
         <button className="w-full bg-green-500 text-white py-1 rounded-md hover:bg-green-600">Make a Payment</button>
-       </div>
+      </div>
       
     </div>
   )

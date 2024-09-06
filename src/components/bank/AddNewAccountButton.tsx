@@ -8,9 +8,9 @@ const AddNewAccountButton:React.FC<addNewAccountButtonProps> = ({onClick}) => {
   return (
     <button
     onClick={onClick}
-    className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md"
+    className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md mb-5"
     >
-    Apply for a New Loan
+    Link Account
   </button>
   )
 }
