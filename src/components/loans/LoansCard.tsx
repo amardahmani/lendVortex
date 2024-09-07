@@ -1,31 +1,52 @@
+import { CalendarIcon, CreditCardIcon, CurrencyDollarIcon } from '@heroicons/react/24/outline'
 import React from 'react'
-
-import { CurrencyDollarIcon } from '@heroicons/react/24/outline'
 
 const LoansCard = () => {
   return (
-    
-
-    <div className="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-0 ">
-      <div className='flex'>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-10 w-10 text-green-500">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <a href="#">
-            <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Loan Summary</h5>
-        </a>
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+      <div className="p-6">
+        <div className="flex items-center space-x-4 mb-6">
+          <div className="bg-green-100 rounded-full p-3">
+            <CurrencyDollarIcon className="h-8 w-8 text-green-600" />
+          </div>
+          <h2 className="text-2xl font-bold text-gray-800">Loan Summary</h2>
+        </div>
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="bg-blue-100 rounded-full p-2">
+                <CreditCardIcon className="h-5 w-5 text-blue-600" />
+              </div>
+              <span className="text-gray-600">Total Loans</span>
+            </div>
+            <span className="text-lg font-semibold text-gray-800">3</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="bg-purple-100 rounded-full p-2">
+                <CurrencyDollarIcon className="h-5 w-5 text-purple-600" />
+              </div>
+              <span className="text-gray-600">Total Balance</span>
+            </div>
+            <span className="text-lg font-semibold text-gray-800">$25,000</span>
+          </div>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="bg-yellow-100 rounded-full p-2">
+                <CalendarIcon className="h-5 w-5 text-yellow-600" />
+              </div>
+              <span className="text-gray-600">Upcoming Payments</span>
+            </div>
+            <span className="text-lg font-semibold text-gray-800">2</span>
+          </div>
+        </div>
       </div>
-      <p className="mb-3 mt-3 font-normal text-gray-500 dark:text-gray-400">
-          - <strong>Total Loans:</strong> [Number]
-          <br />
-          - <strong>Total Balance:</strong> [Amount]
-          <br />
-          - <strong>Upcoming Payments:</strong> [Number]
-      </p>
-      
+      <div className="bg-gray-50 px-6 py-4 mt-5">
+        <button className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300">
+          View Full Loans
+        </button>
+      </div>
     </div>
-
-
   )
 }
 

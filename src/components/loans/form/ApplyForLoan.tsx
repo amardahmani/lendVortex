@@ -1,180 +1,186 @@
 import React, { useState } from 'react';
-
+import { XMarkIcon } from '@heroicons/react/24/outline';
 
 interface ApplyForLoanProps {
-    closeModal: () => void; // Function to close the modal
+  closeModal: () => void;
 }
-const ApplyForLoan: React.FC<ApplyForLoanProps> = ({closeModal}) => {
-  const [loanType, setLoanType] = useState('business'); // This can change based on the user's selection
+
+const ApplyForLoan: React.FC<ApplyForLoanProps> = ({ closeModal }) => {
+  const [loanType, setLoanType] = useState('business');
 
   return (
-    <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-lg">
-      <h1 className="text-2xl font-semibold leading-6 text-gray-900 text-center">Apply for a Loan</h1>
-      <form action="#" method="POST" className="space-y-6 mt-6">
-        {/* Loan Type Selection */}
-        <div className="flex flex-col">
-          <label htmlFor="loanType" className="block text-sm font-medium leading-6 text-gray-900 text-left">
-            Loan Type
-          </label>
-          <div className="mt-2">
+    <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center p-4">
+      <div className="bg-white rounded-lg shadow-xl max-w-md w-full">
+        <div className="flex justify-between items-center p-6 border-b border-gray-200">
+          <h2 className="text-2xl font-semibold text-gray-900">Apply for a Loan</h2>
+          <button
+            onClick={closeModal}
+            className="text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+          >
+            <span className="sr-only">Close</span>
+            <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+          </button>
+        </div>
+        <form className="p-6 space-y-6">
+          <div>
+            <label htmlFor="loanType" className="block text-sm font-medium text-gray-700">
+              Loan Type
+            </label>
             <select
               id="loanType"
               name="loanType"
               value={loanType}
               onChange={(e) => setLoanType(e.target.value)}
-              className="block w-full rounded-md border-0 p-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
+              className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm rounded-md"
             >
               <option value="business">Business Loan</option>
               <option value="employee">Employee Loan</option>
               <option value="student">Student Loan</option>
             </select>
           </div>
-        </div>
 
-        {/* Common Fields */}
-        <div className="flex flex-col">
-          <label htmlFor="amount" className="block text-sm font-medium leading-6 text-gray-900 text-left">
-            Loan Amount
-          </label>
-          <div className="mt-2">
-            <input
-              id="amount"
-              name="amount"
-              type="number"
-              required
-              className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
-            />
+          <div>
+            <label htmlFor="amount" className="block text-sm font-medium text-gray-700">
+              Loan Amount
+            </label>
+            <div className="mt-1 relative rounded-md shadow-sm">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <span className="text-gray-500 sm:text-sm">$</span>
+              </div>
+              <input
+                type="number"
+                name="amount"
+                id="amount"
+                className="focus:ring-green-500 focus:border-green-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
+                placeholder="0.00"
+              />
+              <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                <span className="text-gray-500 sm:text-sm">USD</span>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="flex flex-col">
-          <label htmlFor="purpose" className="block text-sm font-medium leading-6 text-gray-900 text-left">
-            Purpose of Loan
-          </label>
-          <div className="mt-2">
+          <div>
+            <label htmlFor="purpose" className="block text-sm font-medium text-gray-700">
+              Purpose of Loan
+            </label>
             <input
-              id="purpose"
-              name="purpose"
               type="text"
-              required
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
+              name="purpose"
+              id="purpose"
+              className="mt-1 focus:ring-green-500 focus:border-green-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
             />
           </div>
-        </div>
 
-        {/* Conditionally Rendered Fields */}
-        {loanType === 'business' && (
-          <>
-            <div className="flex flex-col">
-              <label htmlFor="businessName" className="block text-sm font-medium leading-6 text-gray-900 text-left">
-                Business Name
-              </label>
-              <div className="mt-2">
+          {loanType === 'business' && (
+            <>
+              <div>
+                <label htmlFor="businessName" className="block text-sm font-medium text-gray-700">
+                  Business Name
+                </label>
                 <input
-                  id="businessName"
+                  type="text"
                   name="businessName"
+                  id="businessName"
+                  className="mt-1 focus:ring-green-500 focus:border-green-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                />
+              </div>
+              <div>
+                <label htmlFor="revenue" className="block text-sm font-medium text-gray-700">
+                  Annual Revenue
+                </label>
+                <div className="mt-1 relative rounded-md shadow-sm">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span className="text-gray-500 sm:text-sm">$</span>
+                  </div>
+                  <input
+                    type="number"
+                    name="revenue"
+                    id="revenue"
+                    className="focus:ring-green-500 focus:border-green-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
+                    placeholder="0.00"
+                  />
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <span className="text-gray-500 sm:text-sm">USD</span>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+
+          {loanType === 'employee' && (
+            <>
+              <div>
+                <label htmlFor="employerName" className="block text-sm font-medium text-gray-700">
+                  Employer Name
+                </label>
+                <input
                   type="text"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col">
-              <label htmlFor="revenue" className="block text-sm font-medium leading-6 text-gray-900 text-left">
-                Annual Revenue
-              </label>
-              <div className="mt-2">
-                <input
-                  id="revenue"
-                  name="revenue"
-                  type="number"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-          </>
-        )}
-
-        {loanType === 'employee' && (
-          <>
-            <div className="flex flex-col">
-              <label htmlFor="employerName" className="block text-sm font-medium leading-6 text-gray-900 text-left">
-                Employer Name
-              </label>
-              <div className="mt-2">
-                <input
-                  id="employerName"
                   name="employerName"
+                  id="employerName"
+                  className="mt-1 focus:ring-green-500 focus:border-green-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                />
+              </div>
+              <div>
+                <label htmlFor="salary" className="block text-sm font-medium text-gray-700">
+                  Monthly Salary
+                </label>
+                <div className="mt-1 relative rounded-md shadow-sm">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span className="text-gray-500 sm:text-sm">$</span>
+                  </div>
+                  <input
+                    type="number"
+                    name="salary"
+                    id="salary"
+                    className="focus:ring-green-500 focus:border-green-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
+                    placeholder="0.00"
+                  />
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <span className="text-gray-500 sm:text-sm">USD</span>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+
+          {loanType === 'student' && (
+            <>
+              <div>
+                <label htmlFor="schoolName" className="block text-sm font-medium text-gray-700">
+                  School Name
+                </label>
+                <input
                   type="text"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col">
-              <label htmlFor="salary" className="block text-sm font-medium leading-6 text-gray-900 text-left">
-                Monthly Salary
-              </label>
-              <div className="mt-2">
-                <input
-                  id="salary"
-                  name="salary"
-                  type="number"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-          </>
-        )}
-
-        {loanType === 'student' && (
-          <>
-            <div className="flex flex-col">
-              <label htmlFor="schoolName" className="block text-sm font-medium leading-6 text-gray-900 text-left">
-                School Name
-              </label>
-              <div className="mt-2">
-                <input
-                  id="schoolName"
                   name="schoolName"
-                  type="text"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
+                  id="schoolName"
+                  className="mt-1 focus:ring-green-500 focus:border-green-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
-            </div>
-
-            <div className="flex flex-col">
-              <label htmlFor="course" className="block text-sm font-medium leading-6 text-gray-900 text-left">
-                Course of Study
-              </label>
-              <div className="mt-2">
+              <div>
+                <label htmlFor="course" className="block text-sm font-medium text-gray-700">
+                  Course of Study
+                </label>
                 <input
-                  id="course"
-                  name="course"
                   type="text"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6"
+                  name="course"
+                  id="course"
+                  className="mt-1 focus:ring-green-500 focus:border-green-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
-            </div>
-          </>
-        )}
+            </>
+          )}
 
-        {/* Submit Button */}
-        <div>
-          <button
-            type="submit"
-            className="flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
-          >
-            Apply for Loan
-          </button>
-        </div>
-      </form>
+          <div className="mt-6">
+            <button
+              type="submit"
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+            >
+              Apply for Loan
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

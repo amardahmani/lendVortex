@@ -1,21 +1,35 @@
+import { BoltIcon, CurrencyDollarIcon, PlusCircleIcon } from '@heroicons/react/24/outline'
 import React from 'react'
 
 const QuickActionsCard = () => {
   return (
-    <div className="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <div className='flex'>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-10 w-10 text-green-500">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <a href="#">
-            <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Quick Actions</h5>
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+      <div className="p-6">
+        <div className="flex items-center space-x-4 mb-6">
+          <div className="bg-yellow-100 rounded-full p-3">
+            <BoltIcon className="h-8 w-8 text-yellow-600" />
+          </div>
+          <h2 className="text-2xl font-bold text-gray-800">Quick Actions</h2>
+        </div>
+        <div className="space-y-4">
+          <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center">
+            <PlusCircleIcon className="h-5 w-5 mr-2" />
+            New Loan Application
+          </button>
+          <button className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center">
+            <CurrencyDollarIcon className="h-5 w-5 mr-2" />
+            Make a Payment
+          </button>
+        </div>
+      </div>
+      <div className="bg-gray-50 px-6 py-4">
+        <a href="#" className="text-gray-600 hover:text-gray-800 font-medium flex items-center justify-center">
+          View All Actions
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
         </a>
       </div>
-      <div className="mb-3 mt-3 font-normal text-gray-500 dark:text-gray-400 space-y-2">
-        <button className="w-full bg-blue-500 text-white py-1 rounded-md hover:bg-blue-600">New Loan</button>
-        <button className="w-full bg-green-500 text-white py-1 rounded-md hover:bg-green-600">Make a Payment</button>
-      </div>
-      
     </div>
   )
 }

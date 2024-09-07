@@ -1,5 +1,6 @@
 import React from 'react';
-import LoanTransactionsTable from '../../components/payment/LoanTransactionsTable';
+import LoanTransactionsTable from '../../../components/payment/LoanTransactionsTable';
+import MakePaymentButton from '../../../components/payment/MakePaymentButton';
 
 const fakeTransactions: any[] = [
     {
@@ -104,9 +105,13 @@ const fakeTransactions: any[] = [
   ];
 
 const PaymentsPage = () => {
-  
+  const handleClick = ():void => {
+    console.log("clicked");
+  }
   return (
     <div>
+        <MakePaymentButton onClick={handleClick}/>
+        <div className='mt-3'></div>
         <LoanTransactionsTable transactions={fakeTransactions}/>
     </div>
   );

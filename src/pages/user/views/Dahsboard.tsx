@@ -1,9 +1,9 @@
 import React from 'react'
-import ActivityCard from '../../components/activity/ActivityCard'
-import LoansCard from '../../components/loans/LoansCard'
-import QuickActionsCard from '../../components/Quick/QuickActionsCard'
-import LoandDistributionChart from '../../components/loans/LoandDistributionChart'
-import PaymentHistory from '../../components/payment/PaymentHistory'
+import ActivityCard from '../../../components/activity/ActivityCard'
+import LoansCard from '../../../components/loans/LoansCard'
+import QuickActionsCard from '../../../components/Quick/QuickActionsCard'
+import LoandDistributionChart from '../../../components/loans/LoandDistributionChart'
+import PaymentHistory from '../../../components/payment/PaymentHistory'
 
 const Dahsboard = () => {
   return (

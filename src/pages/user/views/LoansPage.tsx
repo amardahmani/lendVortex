@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import ApplyLoanButton from '../../components/loans/Buttons/ApplyLoanButton'
-import LoanListTable from '../../components/loans/ListLoans'
-import ApplyForLoan from '../../components/loans/form/ApplyForLoan';
+import ApplyLoanButton from '../../../components/loans/Buttons/ApplyLoanButton'
+import LoanListTable from '../../../components/loans/ListLoans'
+import ApplyForLoan from '../../../components/loans/form/ApplyForLoan';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
 const LoansPage = () => {
@@ -17,6 +17,7 @@ const LoansPage = () => {
   return (
     <>
         <ApplyLoanButton onClick={handleClick}/>
+        <div className='mt-3'></div>
         <LoanListTable onViewStats={handleClick}/>
         {isModalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
